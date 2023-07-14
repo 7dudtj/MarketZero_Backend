@@ -3,13 +3,14 @@ from typing import List
 from pydantic import BaseModel
 
 
+# 상품 정보
 class Item(BaseModel):
-    id: int
-    title: str
-    image: str
-    description: str
-    tags: List[str]
-    price: int
+    id: int # 상품 고유 id
+    title: str # 상품의 이름
+    image: str # 상품 이미지 url
+    description: str # 상품 설명
+    tags: List[str] # 상품 태그 / ex) recommend, zero-sugar
+    price: int # 상품 가격
 
     class Config:
         json_schema_extra = {
