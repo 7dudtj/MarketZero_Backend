@@ -21,6 +21,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    # google auth 설정
+    - name: google auth
+      uses: "google-github-actions/auth@v1"
+      with:
+        credentials_json: "${{ secrets.SERVICE_ACCOUNT_KEY }}"
+
     # gcloud CLI 설정
     - uses: google-github-actions/setup-gcloud@v0
       with:
