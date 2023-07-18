@@ -9,7 +9,9 @@ class Item(BaseModel):
     title: str  # 상품의 이름
     image: str  # 상품 이미지 url
     description: str  # 상품 설명
-    tags: List[str]  # 상품 태그 / ex) recommend, zero-sugar
+    tags: List[
+        str
+    ]  # 상품 태그: ["brand-new", "recommend", "zero-sugar", "zero-kcal", "zero-gluten", "zero-caffeine", "zero-alcohol"]
     price: int  # 상품 가격
 
     class Config:
