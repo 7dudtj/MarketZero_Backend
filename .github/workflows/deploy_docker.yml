@@ -12,7 +12,6 @@ env:
   DOCKER_IMAGE_NAME: market-zero-server
   GCE_INSTANCE: ${{ secrets.GCE_INSTANCE }}
   GCE_INSTANCE_ZONE: ${{ secrets.GCE_INSTANCE_ZONE }}
-  SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
 
 jobs:
   setup-build-publish-deploy:
@@ -28,14 +27,14 @@ jobs:
     - name: Google auth
       uses: "google-github-actions/auth@v1"
       with:
-        credentials_json: "$SERVICE_ACCOUNT_KEY"
+        credentials_json: "${{ secrets.SERVICE_ACCOUNT_KEY }}"
 
     # gcloud CLI 설정
     - name: Setup gcloud
       uses: google-github-actions/setup-gcloud@v0
       with:
         versions: '290.0.1'
-        service_account:key: $SERVICE_ACCOUNT_KEY
+        service_account:key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         project_id: $GCP_PROJECT_ID
 
     # gcloud에서 Docker 사용할 수 있도록 설정
