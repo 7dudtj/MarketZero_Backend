@@ -28,7 +28,7 @@ jobs:
     - name: Google auth
       uses: "google-github-actions/auth@v1"
       with:
-        credentials_json: $SERVICE_ACCOUNT_KEY
+        credentials_json: "$SERVICE_ACCOUNT_KEY"
 
     # gcloud CLI 설정
     - name: Setup gcloud
