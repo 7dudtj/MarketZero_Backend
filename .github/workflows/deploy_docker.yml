@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 'test/cicd'
     paths:
       - '**'
 
@@ -30,15 +31,15 @@ jobs:
         credentials_json: "${{ secrets.SERVICE_ACCOUNT_KEY }}"
 
     # gcloud CLI 설정
-    - name: Setup gcloud
+    - name: Set gcloud CLI
       uses: google-github-actions/setup-gcloud@v0
       with:
         versions: '290.0.1'
         service_account:key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-        project_id: $PROJECT_ID
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
 
     # gcloud에서 Docker 사용할 수 있도록 설정
-    - name: Auth gcloud docker
+    - name: Set gcloud docker
       run: |-
         gcloud --quiet auth configure-docker
 
