@@ -1,6 +1,10 @@
 email-validator==2.0.0.post2
-fastapi==0.100.0
+fastapi==0.78.0 # pydantic과의 버전 이슈로 인하여 0.78.0으로 고정
 pip==23.1.2
 setuptools==67.8.0
 uvicorn==0.22.0
 wheel==0.38.4
+beanie==1.13.1
+motor==3.2.0
+python-dotenv==1.0.0
+python-multipart==.0.0.5
