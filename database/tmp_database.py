@@ -1,4 +1,4 @@
-items = [
+tmp_items = [
     {
         "id": 1,
         "title": "코카콜라 제로 250ml",
